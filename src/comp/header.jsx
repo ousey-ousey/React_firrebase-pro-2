@@ -17,7 +17,7 @@ const Header = () => {
     <div className="myheader">
       <header className="hide-when-mobile ali ">
         <h1>
-          <a className="logo" href="https://protifolio-gray.vercel.app/">
+          <a className="logo" href="/">
             Yousef.dev
           </a>
         </h1>

@@ -1,39 +1,39 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import About from "./pages/About";
- 
 import Profile from "./pages/Profile";
 // LEVEL2
 import { useContext } from "react";
 import ThemeContext from "./context/ThemeContext";
-import Signin from './pages/Singin';
-import Signup from './pages/Signup';
+import Signin from "./pages/sign in/Singin.jsx";
+import Signup from "./pages/Signup";
+import Edit from "./pages/editpage/editpage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <h1>SORROY.........</h1>,
+    errorElement: <h2>page NOT FOund GO BACK NOW !!!</h2>,
   },
   {
     path: "/signin",
     element: <Signin />,
   },
-
+  {
+    path: "/editpage",
+    element: <Edit />,
+  },
 
   {
     path: "/signup",
     element: <Signup />,
   },
 
-
-
   {
     path: "/about",
     element: <About />,
   },
 
- 
   {
     path: "/profile",
     element: <Profile />,

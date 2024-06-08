@@ -1,23 +1,9 @@
-.forgot-password{
-  background-color: whitesmoke;
-  width: 400px;
-  height: 333px;
-  border-radius: 12px;
+
+main .forma{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  
-  scale: 0;
-  transform: translateY(-100vh);
-  transition: 1s;
-}
-
-
-.show-forgot-password{
-scale: 1;
-transform: translateY(0);
-
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .forgot-pass{
