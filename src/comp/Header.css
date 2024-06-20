@@ -36,23 +36,6 @@ header {
   animation: down 1s 1;
 }
 
-.logo {
-  animation: logoani 25s infinite;
-}
-
-@keyframes logoani {
-
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-
-  50% {
-    letter-spacing: 7px;
-    opacity: 1;
-  }
-}
-
 
 .logo:hover {
   font-size: x-large;
@@ -71,4 +54,49 @@ header {
   color: cyan;
   box-shadow: 0 0 5px cyan;
   border-radius: 5px;
+}
+ul.lang-box{
+  display: none;
+  position: absolute;
+  background: #000000;
+  width: 150px;
+  color: rgb(0, 135, 253);
+  padding: 11px;
+  top: 40px;
+  right: -5px;
+  border-radius: 8px;
+
+}
+ul.lang-box li {
+padding: 8px;
+  border-bottom: rgb(194, 194, 194) solid 1px ;
+  line-height: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+    align-items: center;
+}
+ul.lang-box li:last-child{
+  border-bottom: none;
+}
+.fa-check{
+color: rgb(43, 214, 43);
+}
+ul.lang-box li:hover{
+  cursor: pointer;
+}
+li.lang{
+font-size: 18px;
+position: relative;
+}
+li.lang ul.flex{
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+}
+ul.lang-box:hover{
+  display: block;
+}
+li.lang:hover ul.lang-box{
+display: block;
 }

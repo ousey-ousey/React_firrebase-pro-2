@@ -8,9 +8,10 @@ import ThemeContext from "../context/ThemeContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/config";
 import { signOut } from "firebase/auth";
-
+import { useTranslation } from "react-i18next";
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const { t, i18n } = useTranslation();
+  const [user] = useAuthState(auth);
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
@@ -18,18 +19,9 @@ const Header = () => {
       <header className="hide-when-mobile ali ">
         <h1>
           <a className="logo" href="/">
-            Yousef.dev
+            <sub>1.0×</sub>NOota.dev
           </a>
         </h1>
-        {/* <button
-          onClick={() => {
-            toggleTheme(theme === "Light" ? "Dark" : "Light");
-          }}
-          className="theme-btn"
-        >
-          {theme}
-        </button> */}
-
         <i
           onClick={() => {
             toggleTheme(theme === "Light" ? "Dark" : "Light");
@@ -44,6 +36,42 @@ const Header = () => {
         ></i>
 
         <ul className="flex">
+          <li className="lang main-link">
+            <p>{t("lang")}</p>
+            <ul className=" flex lang-box">
+              <li
+                onClick={() => {
+                  i18n.changeLanguage("ar");
+                }}
+                dir="rtl"
+              >
+                <p>العربية</p>
+                {i18n.language === "ar" && (
+                  <i className="fa-solid fa-check"></i>
+                )}
+              </li>
+              <li
+                onClick={() => {
+                  i18n.changeLanguage("en");
+                }}
+              >
+                <p>english</p>
+                {i18n.language === "en" && (
+                  <i className="fa-solid fa-check"></i>
+                )}
+              </li>
+              <li
+                onClick={() => {
+                  i18n.changeLanguage("fr");
+                }}
+              >
+                <p>french</p>
+                {i18n.language === "fr" && (
+                  <i className="fa-solid fa-check"></i>
+                )}
+              </li>
+            </ul>
+          </li>
           {!user && (
             <li className="main-list">
               <NavLink className="main-link" to="/signin">
@@ -73,14 +101,14 @@ const Header = () => {
               }}
               className="main-list"
             >
-              <button className="main-link signout">Sign-out</button>
+              <button className="main-link signout">{t("signout")}</button>
             </li>
           )}
 
           {user && (
             <li className="main-list">
               <NavLink className="main-link" to="/about">
-                About
+                {t("support")}
               </NavLink>
             </li>
           )}
@@ -88,7 +116,7 @@ const Header = () => {
           {user && (
             <li className="main-list">
               <NavLink className="main-link" to="/profile">
-                Profile
+                {t("account")}
               </NavLink>
             </li>
           )}

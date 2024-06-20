@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <Signin />,
   },
   {
-    path: "/editpage",
+    path: "/editpage/:stringid",
     element: <Edit />,
   },
 

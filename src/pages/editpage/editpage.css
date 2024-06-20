@@ -31,7 +31,12 @@
     outline: none;
     text-align: center;
 }
-
+.edit-task .title-name:focus{
+    border: 1px solid bisque;
+    margin-right:5px ;
+    overflow: hidden;
+    min-width: 10rem;
+}
 .edit-task .fa-pen-to-square{
     font-size: 25px;
     transition: .2s;
@@ -94,7 +99,31 @@
     margin-bottom: 11px;
     scale: 1;
 }
+.edit-task form{
+    flex-direction: row;
+}
+.edit-task .newtask {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 5px;
+    padding: 5px;
+    gap: 5px;
+}
+.edit-task .newtask input {
+    margin: 5px;
+}
+.edit-task .newtask .BTNSUBTITLe{
+    padding: 5px;
+    color: #fff;
+    margin: 5px;
+    border-radius: 20%;
+    border: 0;
+    outline: 0;
+    background: teal;
 
+}
 .edit-task .card-task:hover{
     border-left: 3px solid wheat;
 background-color: rgba(1, 1, 22, 0.508);

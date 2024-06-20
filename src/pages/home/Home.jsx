@@ -10,6 +10,7 @@ import { auth } from "../../firebase/config";
 import { Link } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
 import "./home.css";
+import Calltask from "./calltask";
 import { db } from "../../firebase/config";
 import { useState } from "react";
 import Modaling from "./modaling";
@@ -17,6 +18,9 @@ const Home = () => {
   const [array, setarray] = useState([]);
   const [title, settitle] = useState("");
   const [subtitle, setsubtitle] = useState("");
+  const [sortOrder, setSortOrder] = useState("newest"); // حالة للترتيب
+  const [filter, setFilter] = useState("all"); // حالة للفلترة
+
   // --------------------
   //modAL functions
   //
@@ -38,7 +42,7 @@ const Home = () => {
   };
   const submitBTN = async (eo) => {
     eo.preventDefault();
-    const taskid = Date();
+    const taskid = new Date().getTime();
     setshowloading(true);
     await setDoc(doc(db, user.uid, `${taskid}`), {
       title: `${title}`,
@@ -47,10 +51,10 @@ const Home = () => {
       completed: false,
     });
     console.log("Doneeee>>>>>>>>>");
-    setarray([]);
-    settitle("");
     setshowloading(false);
     setshowmodel(false);
+    setarray([]);
+    settitle("");
     setshowmassage(false);
     setTimeout(() => {
       setshowmassage(true);
@@ -73,6 +77,8 @@ const Home = () => {
   const [showmassage, setshowmassage] = useState(true);
   const closeModel = () => {
     setshowmodel(false);
+    setarray([]);
+    settitle("");
   };
   const newtaskbtn = () => {
     setshowmodel(true);
@@ -165,27 +171,21 @@ const Home = () => {
           <main className="home">
             {/* options section */}
             <section className="parent-of-btns flex mtt">
-              <button>Newest first</button>
-
-              <button>Oldest first</button>
-              <select id="browsers">
-                <option value="ddddd"> All Tasks </option>
-                <option value="dddddd"> Completed </option>
-                <option value="dddddd"> Not Completed </option>
+              <button onClick={() => setSortOrder("newest")}>
+                Newest first
+              </button>
+              <button onClick={() => setSortOrder("oldest")}>
+                Oldest first
+              </button>
+              <select id="browsers" onChange={(e) => setFilter(e.target.value)}>
+                <option value="all">All Tasks</option>
+                <option value="completed">Completed</option>
+                <option value="not_completed">Not Completed</option>
               </select>
             </section>
+
             {/* show taskes */}
-            <section className="flex all-tasks mt">
-              <Link to={"/editpage"}>
-                <article dir="auto" className="one-task">
-                  <h2> New Task </h2>
-                  <ul>
-                    <li>html</li>
-                  </ul>
-                  <p className="time">a day ago</p>
-                </article>
-              </Link>
-            </section>
+            <Calltask user={user} sortOrder={sortOrder} filter={filter} />
             {/* new task button */}
             <section className="mt">
               <button
