@@ -12,9 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
+      <SpeedInsights />
       <ThemeProvider>
         <App />
       </ThemeProvider>
+      <SpeedInsights />
     </HelmetProvider>
   </React.StrictMode>
 );
