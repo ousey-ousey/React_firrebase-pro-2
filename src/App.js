@@ -3,6 +3,8 @@ import Home from "./pages/home/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 // LEVEL2
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 import { useContext } from "react";
 import ThemeContext from "./context/ThemeContext";
 import Signin from "./pages/sign in/Singin.jsx";
@@ -45,6 +47,7 @@ function App() {
   return (
     <div className={`${theme}`}>
       <RouterProvider router={router} />
+      <SpeedInsights />
     </div>
   );
 }

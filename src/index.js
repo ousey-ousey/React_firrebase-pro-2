@@ -6,17 +6,14 @@ import "./i18n";
 // LEVEL2
 import { ThemeProvider } from "./context/ThemeContext";
 import App from "./App";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <SpeedInsights />
     <HelmetProvider>
       <ThemeProvider>
         <App />
       </ThemeProvider>
     </HelmetProvider>
-    <SpeedInsights />
   </React.StrictMode>
 );
