@@ -132,7 +132,11 @@ const Edit = () => {
         <section className="sub-task">
           <div className="flex parent-time">
             <p className="time">
-              <Moment fromNow date={parseInt(taskData.id, 10)} />
+              <Moment
+                className="time"
+                fromNow
+                date={parseInt(taskData.id, 10)}
+              />
             </p>
             <div className="checkboxdiv">
               <label htmlFor="completed"> Completed </label>

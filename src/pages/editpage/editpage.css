@@ -162,7 +162,7 @@ light mode
   , .Light .edit-task .title-name ,
 .Light .edit-task .checkboxdiv label,
 .Light .edit-task section.sub-task .parent-time .time, .Light .fa-trash,
-.Light .edit-task .card-task p {
+.Light .edit-task .card-task p ,.edit-task section.sub-task .parent-time{
 
     color: black;
  }

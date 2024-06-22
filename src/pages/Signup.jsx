@@ -22,7 +22,7 @@ const Signup = () => {
   const [hasError, sethasError] = useState(false);
   const [firebaseError, setfirebaseError] = useState("");
   const [userName, setuserName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   // Loading    (done)
   // NOT sign-in  (done)
@@ -36,7 +36,7 @@ const Signup = () => {
       }
     }
   });
-// 
+  //
   const signUpBTN = (eo) => {
     eo.preventDefault();
 
